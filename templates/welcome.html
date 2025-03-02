@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndiSpeech Translator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, rgb(12, 38, 41), rgb(33, 26, 21));
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .highlight {
+            background: linear-gradient(90deg, #e64a19, #8e24aa, #1e88e5, #43a047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #555;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2962ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0039cb;
+        }
+        .languages {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.2em;
+            color: white;
+        }
+        video.background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="{{ url_for('static', filename='videos/background3.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <h1>
+            <span style="color: #1e88e5;">&#x1F5A8; A</span>
+            <span class="highlight">IndiSpeech Application</span>
+        </h1>
+        <p>Break language barriers with our advanced speech translation tool,<br> supporting all major Indian languages.</p>
+
+        <!-- Button to Navigate to the Next Page -->
+        <button class="btn" onclick="window.location.href='{{ url_for('index') }}'">Start Translation</button>
+
+        <div class="languages">
+            <span>नमस्ते</span>
+            <span>你好</span>
+            <span>Bonjour</span>
+            <span>Hola</span>
+        </div>
+    </div>
+    
+</body>
+</html>

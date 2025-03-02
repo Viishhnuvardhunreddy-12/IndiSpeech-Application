@@ -1,0 +1,252 @@
+/* General Styling */
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden; /* Prevent scrollbars due to video */
+}
+
+/* Fullscreen Video Background */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures full screen coverage */
+}
+
+/* Overlay to Improve Text Visibility */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: -1;
+}
+
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+h2 {
+  background: linear-gradient(90deg, #e64a19, #8e24aa, #1e88e5, #43a047);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Panel Styling */
+.left-panel, .center-panel, .right-panel {
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+}
+
+.center-panel {
+  height: 600px; 
+  flex: 1; /* Larger size for the center panel */
+}
+
+form label,
+form button {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+}
+
+form input,
+form select,
+form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button#stop-btn {
+  background-color: #dc3545;
+}
+
+button#stop-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Translation Result Styling */
+.result-text {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+#translated-audio {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+
+/* Marquee styling */
+.marquee {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(43, 42, 42, 0.5);
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  padding: 1px 0;
+  height: 50px; 
+  box-shadow: 0 -2px 5px rgba(87, 86, 86, 0.2);
+}
+
+.marquee p {
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+  font-size: 16px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Rocket animation */
+.rocket {
+  display: inline-block;
+  animation: moveRocket 1.5s infinite ease-in-out;
+}
+
+@keyframes moveRocket {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Surfing and wave animations */
+.surfing-area {
+  position: relative;
+  display: inline-block;
+  height: 40px; /* Ensures enough space for wave animation */
+}
+
+.surfing-man {
+  display: inline-block;
+  animation: waveSurf 1.5s infinite ease-in-out;
+  z-index: 2; /* Ensures the surfer appears above the wave */
+}
+
+@keyframes waveSurf {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+/* Wave animation */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 95%;
+  transform: translateX(-50%); /* Centers the wave under the surfer */
+  width: 60px; /* Adjust wave width */
+  height: 10px; /* Adjust wave height */
+  background: linear-gradient(180deg, #c4ceda 0%, transparent 100%);
+  border-radius: 50%;
+  animation: waveMotion 2s infinite ease-in-out;
+  opacity: 0.8;
+  z-index: 1; /* Ensures wave is below the surfer */
+}
+
+@keyframes waveMotion {
+  0%, 100% {
+    transform: scaleX(1) translateY(0);
+  }
+  50% {
+    transform: scaleX(1.2) translateY(-5px);
+  }
+}
+/* Visual feedback for recording */
+button.recording {
+  background-color: #28a745; /* Green color to indicate recording */
+}
+
+button.recording:hover {
+  background-color: #218838; /* Darker green on hover */
+}

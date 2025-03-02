@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>IndiSpeech Application</title>
+</head>
+<body>
+    <div class="flex-container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h1>IndiSpeech Application 🤖</h1>
+            <p style="color: black;">Welcome to the IndiSpeech Application! Convert your English audio or text into multiple Indian languages with ease.</p>
+        </div>
+
+        <!-- Center Panel -->
+        <div class="center-panel">
+            <header>
+                <h2>Transform 🎙️ Voice or 🎧 Audio</h2>
+            </header>
+            <form id="speech-form" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="language">Target Language:</label>
+                    <select id="language" name="language">
+                        <option value="Hindi">Hindi</option>
+                        <option value="Telugu">Telugu</option>
+                        <option value="Kannada">Kannada</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Malayalam">Malayalam</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="English">English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="audio">Upload Audio File:</label>
+                    <input type="file" id="audio" name="audio" accept="audio/*">
+                </div>
+                <div class="form-group">
+                    <label for="script">Type Script Here💬:</label>
+                    <textarea id="script" name="script" rows="4" cols="30" placeholder="Type your script here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="form-group">
+                    <button id="record-btn" type="button" title="Start recording your voice">🎙️ Record Voice</button>
+                    <button id="stop-btn" type="button" title="Stop the current voice recording" disabled>🛑 Stop Recording</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div id="result">
+                <h2>Translation Results:</h2>
+                <p><strong>Original Text:</strong></p>
+                <p id="recognized-text" class="result-text">{🗣️Recognized text} </p>
+                <p><strong>Translated Text:</strong></p>
+                <p id="translated-text" class="result-text">{Translated text🔉} </p>
+                <audio id="translated-audio" controls style="margin-top: 15px; display: none;"></audio>
+            </div>
+        </div>
+    </div>
+    <div class="marquee">
+        <p>
+            Welcome to the IndiSpeech Application!
+            <span class="rocket">🚀</span> Translate your speech in Indian languages effortlessly!
+            <span class="surfing-man">🏄</span>
+            <span class="wave"></span>
+        </p>
+    </div>
+
+    <div class="video-container">
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="{{ url_for('static', filename='videos/background3.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
